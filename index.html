@@ -17,33 +17,37 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
 <body>
-  <div id="id" class="container">
-    <div class="logo">
-      <h1>Boolean</h1>
+  <div id="app" >
+    <div class="container">
+      <div class="logo">
+        <h1>Boolean</h1>
+      </div>
+  
+      <div class="new-task">
+        <input type="text" placeholder="Nuova task">
+        <button>Aggiungi</button>
+      </div>
+  
+      <div class="task-container">
+        <ul v-if="tasks.length > 0">
+          <li v-for="(task, i) in tasks">
+            <span> {{task}}</span>
+            <i @click="remuveTask(i)" class="fa-solid fa-trash"></i>
+            
+          </li>
+  
+  
+        </ul>
+        <h3 v-else>nessun task</h3>
+      </div>
     </div>
-
-    <div class="new-task">
-      <input type="text" placeholder="Nuova task">
-      <button>Aggiungi</button>
-    </div>
-
-    <div class="task-container">
-      <ul>
-        <li>
-          <span> Task da fare</span>
-
-        </li>
-
-
-      </ul>
-
-    </div>
+    
 
 
   </div>

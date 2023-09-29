@@ -56,13 +56,16 @@ ul{
 }
 
 .task-container li i{
-  display: flex;
-  justify-content: space-between;
+  float: right;
   line-height: 40px;
   cursor: pointer;
 }
 
 .task-container li i:hover{
   color: red;
+}
+
+.sbarrato{
+  text-decoration: line-through;
 }
 
