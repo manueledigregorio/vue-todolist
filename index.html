@@ -30,17 +30,20 @@
       </div>
   
       <div class="new-task">
-        <input @keyup.enter="addTask" v-model="message" type="text" placeholder="Nuova task">
+        <input @keyup.enter="addTask" v-model.trim="message" type="text" placeholder="Nuova task">
         <button @click="addTask" >Aggiungi</button>
+        <p v-if="iserror">non hai raggiunto i 5 caratteri</p>
       </div>
   
       <div class="task-container">
         <ul v-if="tasks.length > 0">
+
+          <!--è come un toogle di base è done e false al click diventa true -->
           <li 
           @click="task.done  = !task.done" 
           v-for="(task, i) in tasks">
             <span :class="{sbarrato: task.done}"> {{task.text}}</span>
-            <i  @click.stop="removeTask(i) " class="fa-solid fa-trash"></i>
+            <i @click.stop="removeTask(i) " class="fa-solid fa-trash"></i>
             
           </li>
   
@@ -48,6 +51,7 @@
         </ul>
         <h3 v-else>nessun task</h3>
       </div>
+      <h3 v-if="errorTask:">devi svolgere il tuo task prima</h3>
     </div>
     
 

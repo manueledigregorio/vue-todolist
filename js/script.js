@@ -19,21 +19,44 @@ createApp({
        
       ],
 
-       message:''
+       message:'',
+       iserror:false,
+       errorTask: false
+
     } 
   },
   
   methods:{
     removeTask(i){
-      this.tasks.splice(i, 1)
+      if(!this.tasks[i].done){
+        this.errorTask = true
 
+      }else{
+        this.errorTask = false
+        this.tasks.splice(i, 1)
+      }
+
+      
     },
 
     addTask(){
-      this.tasks.unshift({text:this.message, done:false});
-      console.log(this.tasks)
-      this.message='';
-    },
+      if(this.message.length < 5){
+      this.iserror = true
+
+      }else{
+        const newTaskObject = {text:this.message, done:false}
+        this.tasks.unshift(newTaskObject)
+        this.iserror = false
+        this.message = ''
+        
+      }
+      
+    }
+
+
+   
+
+
 
   }
 
