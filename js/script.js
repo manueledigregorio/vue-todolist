@@ -3,20 +3,37 @@ createApp({
   data(){
     return{
       tasks:[
-        'fare la spesa ',
-        'dare da mangiare al cane',
-        'andare in America'
+        {
+          text: 'fare la spesa',
+          done: false
+        },
+        {
+          text:  'dare da mangiare al cane',
+          done: false
+        },
+        {
+          text:'andare in america',
+          done: false
+        }
+       
+       
       ],
 
-       
-    }
+       message:''
+    } 
   },
   
   methods:{
-    remuveTask(i){
+    removeTask(i){
       this.tasks.splice(i, 1)
 
-    }
+    },
+
+    addTask(){
+      this.tasks.unshift({text:this.message, done:false});
+      console.log(this.tasks)
+      this.message='';
+    },
 
   }
 

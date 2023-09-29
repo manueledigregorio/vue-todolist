@@ -30,15 +30,17 @@
       </div>
   
       <div class="new-task">
-        <input type="text" placeholder="Nuova task">
-        <button>Aggiungi</button>
+        <input @keyup.enter="addTask" v-model="message" type="text" placeholder="Nuova task">
+        <button @click="addTask" >Aggiungi</button>
       </div>
   
       <div class="task-container">
         <ul v-if="tasks.length > 0">
-          <li v-for="(task, i) in tasks">
-            <span> {{task}}</span>
-            <i @click="remuveTask(i)" class="fa-solid fa-trash"></i>
+          <li 
+          @click="task.done  = !task.done" 
+          v-for="(task, i) in tasks">
+            <span :class="{sbarrato: task.done}"> {{task.text}}</span>
+            <i  @click.stop="removeTask(i) " class="fa-solid fa-trash"></i>
             
           </li>
   
