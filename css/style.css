@@ -32,3 +32,37 @@
   margin-right: 15px;
 }
 
+ul{
+
+  list-style: none;
+}
+
+.task-container{
+  background-color: #F6F7F7;
+  border-radius: 10px;
+  margin-top: 40px;
+  padding: 30px;
+}
+
+.task-container li{
+  line-height: 40px;
+  border-bottom: 1px solid lightgray;
+  padding: 0 15px;
+}
+
+.task-container li:hover{
+  background-color: white;
+
+}
+
+.task-container li i{
+  display: flex;
+  justify-content: space-between;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.task-container li i:hover{
+  color: red;
+}
+
